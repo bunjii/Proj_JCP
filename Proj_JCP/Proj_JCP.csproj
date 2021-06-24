@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{687E4E5D-066A-42E4-9964-8B388BE032CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proj_JCP</RootNamespace>
+    <AssemblyName>Proj_JCP</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GH_IO">
+      <HintPath>Lib\R7\GH_IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Grasshopper">
+      <HintPath>Lib\R7\Grasshopper.dll</HintPath>
+    </Reference>
+    <Reference Include="karamba.gha">
+      <HintPath>Lib\karamba.gha.dll</HintPath>
+    </Reference>
+    <Reference Include="karambaCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\karambaCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="RhinoCommon">
+      <HintPath>Lib\R7\RhinoCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddAditionalLoadCases.cs" />
+    <Compile Include="AddElem.cs" />
+    <Compile Include="CrosecOptJP.cs" />
+    <Compile Include="ElimDiagonal.cs" />
+    <Compile Include="ElimElem.cs" />
+    <Compile Include="Proj_JCPInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Default.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReactivateElem.cs" />
+    <Compile Include="ReviveElement.cs" />
+    <Compile Include="UpdateBeams.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\revive.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addelem.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addloads.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crosec.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "%25UserProfile%25\AppData\Roaming\Grasshopper\7\Libraries\$(ProjectName).gha"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <FallbackCulture>en-US</FallbackCulture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartProgram>C:\Program Files\Rhinoceros 5.0 (64-bit)\System\Rhino.exe</StartProgram>
+    <StartArguments>
+    </StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+</Project>
